@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 class SignUpForm(UserCreationForm):
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args,**kwargs)
+		self.fields["username"].widget.attrs.update({
+			'class': 'modal-body__MailInput w-100'
+			})
 		self.fields["email"].widget.attrs.update({
 			'class': 'modal-body__MailInput w-100'
 			})
@@ -18,6 +21,6 @@ class SignUpForm(UserCreationForm):
 
 	class Meta:
 		model = User
-		fields = ['email', 'password1', 'password2']
+		fields = ['username','email', 'password1', 'password2']
 
 

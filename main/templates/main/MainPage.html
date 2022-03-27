@@ -55,8 +55,8 @@
                                     <a class=" menu__link" aria-current="page" href="#"> корзина
                                     </a>
                                 <li class="nav-item ">
-                                    <a class=" menu__link " data-bs-toggle="modal" data-bs-target="#exampleModalToggle"
-                                        aria-current="page" href=""> Личный кабинет
+                                    <a class=" menu__link " aria-current="page" href="">
+                                     Личный кабинет
                                     </a>
                                 </li>
                                 </li>
@@ -106,15 +106,19 @@
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form class="modal-body">
+                <form class="modal-body" method="POST">
+                    {% csrf_token %}
                     <div class="modal-body__Mail mb-3">
-                        <div class="modal-body__MailTitle">ЭЛ. ПОЧТА</div>
-                        <input type="text" class="modal-body__MailInput w-100">
+                        <div class="modal-body__MailTitle">ИМЯ ПОЛЬЗОВАТЕЛЯ</div>
+                        <input type="text" class="modal-body__MailInput w-100" name="username">
                     </div>
                     <div class="modal-body__Password mb-5">
                         <div class="modal-body__PasswordTitle">ПАРОЛЬ</div>
-                        <input type="password" class="modal-body__PasswordInput w-100">
+                        <input type="Password" class="modal-body__PasswordInput w-100" name="password">
                     </div>
+                    {% for m in messages %}
+                    <p id="messages"> {{m}} </p>
+                    {% endfor %}
                     <div class="modal-body__SignIn text-center">
                         <button class="modal-body__SignInBtn">ВОЙТИ</button>
                     </div>
@@ -142,6 +146,10 @@
                         <h5 class="modal-title" id="exampleModalToggleLabel2">Регистрация</h5>
                     </div>
                     <div class="modal-body__Mail mb-3">
+                        <div class="modal-body__MailTitle">ИМЯ ПОЛЬЗОВАТЕЛЯ</div>
+                        {{ form.username }}
+                    </div>
+                    <div class="modal-body__Mail mb-3">
                         <div class="modal-body__MailTitle">ЭЛ. ПОЧТА</div>
                         {{ form.email }}
                     </div>
@@ -155,7 +163,7 @@
                     </div>
                     {{ form.errors }}
                     <div class="modal-body__SignIn  text-center">
-                        <button class="modal-body__SignInBtn fz20">зарегистрироваться</button>
+                        <button class="modal-body__SignInBtn fz20" name="reg">зарегистрироваться</button>
                     </div>
                     <div class="modal-body__SignInSubTitle text-center mb-3 mt-5">ИЛИ</div>
                     
