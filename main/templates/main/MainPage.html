@@ -20,7 +20,7 @@
 
         <header class="header">
             <div class="header__first">
-                <a href="index.html" class="header__logo">
+                <a href="{% url 'main' %}" class="header__logo">
                 </a>
             </div>
             <div class="header__second">
@@ -52,7 +52,7 @@
                                 </li>
                                 {% if request.user.is_authenticated %}
                                 <li class="nav-item">
-                                    <a class=" menu__link" aria-current="page" href="#"> корзина
+                                    <a class=" menu__link" aria-current="page" href="{% url 'bag' %}"> корзина
                                     </a>
                                 <li class="nav-item ">
                                     <a class=" menu__link " aria-current="page" href="">
@@ -67,7 +67,7 @@
                                 {% else %}
                                 <li class="nav-item ">
                                     <a class=" menu__link " data-bs-toggle="modal" data-bs-target="#exampleModalToggle"
-                                        aria-current="page" href="#"> вход/регистрация
+                                        aria-current="page" href=""> вход/регистрация
                                     </a>
                                 </li>
                                 {% endif %}
