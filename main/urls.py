@@ -10,4 +10,5 @@ urlpatterns = [
 	path('t-shirt/', views.T_shirt, name = 't_shirt'),
 	path('hoody/', views.Hoody, name = 'hoody'),
 	path('other/', views.Other, name = 'other'),
+	path('about/<int:pk>', views.About, name = 'about'),
 ]

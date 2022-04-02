@@ -7,11 +7,11 @@ class Product(models.Model):
 	# Категории товаров
 	t_shirt = "футболки"
 	hoody = "кофты"
-	other = "Другое"
+	other = "другое"
 	CATEGORY = (
 		(t_shirt,"футболки"),
 		(hoody, "кофты"),
-		(other, "Другое")
+		(other, "другое")
 		)
 
 

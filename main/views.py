@@ -46,6 +46,11 @@ def Other(request):
 	products = Product.objects.filter(available=True,category="другое")
 	return render(request, "main/other.html", {'products':products})
 
+def About(request):
+	product = get_object_or_404(Product,
+                                id=id,
+                                available=True)
+	return render(request,'main/Product.html',{'product': product})
 
 def Logout(request):
 	logout(request)
