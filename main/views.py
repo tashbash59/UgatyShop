@@ -24,6 +24,9 @@ def MainPage(request):
 				messages.info(request, 'Неправильный логин или пароль')
 	return render(request, "main/MainPage.html", {"form":form})
 
+def Bag(request):
+	return render(request, "main/Bag.html", {})
+
 
 def Logout(request):
 	logout(request)

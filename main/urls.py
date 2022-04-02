@@ -6,4 +6,5 @@ from .views import *
 urlpatterns = [
 	path('', views.MainPage, name = 'main'),
 	path('logout', views.Logout, name = 'logout'),
+	path('bag/', views.Bag, name = 'bag'),
 ]
