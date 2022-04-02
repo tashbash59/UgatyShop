@@ -4,7 +4,8 @@ from .models import Product
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-def MainPage(request):
+
+def authentication(request):
 	form = SignUpForm()
 	if request.method == 'POST':
 		if 'reg' in request.POST:
@@ -23,6 +24,11 @@ def MainPage(request):
 				return redirect('main')
 			else:
 				messages.info(request, 'Неправильный логин или пароль')
+	return form
+
+
+def MainPage(request):
+	form = authentication(request)
 	return render(request, "main/MainPage.html", {"form":form})
 
 def Bag(request):
