@@ -295,7 +295,6 @@
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   position: relative;
-  background: url("../img/Tshirt1.png") 50% no-repeat;
   height: 450px;
   width: 429px;
   border: rgba(0, 0, 0, 0.3) 1px solid;
@@ -308,6 +307,9 @@
 }
 
 .product__price {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 35%;
   background: #000000;
   border-radius: 41px 0px;
@@ -323,7 +325,7 @@
   transition: all 1ms ease 0s;
   position: absolute;
   top: 45%;
-  left: 18%;
+  right: 15%;
   visibility: hidden;
   font-style: normal;
   font-size: 20px;
@@ -364,7 +366,7 @@
 }
 
 .product:hover .product__bg {
-  background: rgba(45, 45, 45, 0.5) url("../img/Tshirt1.png");
+  background: rgba(45, 45, 45, 0.5);
   -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   border-radius: 40px;
@@ -378,11 +380,15 @@
 @media (max-width: 500px) {
   .product__bg {
     width: 350px;
+    height: 375px;
   }
   .product__name {
     width: 350px;
   }
   .product__price {
     font-size: 18px;
+  }
+  .product__btn {
+    right: 7%;
   }
 }
