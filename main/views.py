@@ -3,6 +3,8 @@ from .forms import SignUpForm
 from .models import Product
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.views.generic import DetailView
+
 
 
 def authentication(request):
@@ -46,11 +48,10 @@ def Other(request):
 	products = Product.objects.filter(available=True,category="другое")
 	return render(request, "main/other.html", {'products':products})
 
-def About(request):
-	product = get_object_or_404(Product,
-                                id=id,
-                                available=True)
-	return render(request,'main/Product.html',{'product': product})
+class About(DetailView):
+	model = Product
+	template_name = 'main/Product.html' 
+	context_object_name = 'product'
 
 def Logout(request):
 	logout(request)

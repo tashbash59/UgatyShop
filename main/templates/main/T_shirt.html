@@ -93,11 +93,8 @@
                                 <img src="{{ prod.image.url }}" alt="">
                                 <span class="product__price text-center">
                                     {{ prod.price }}
-                                </span>        
-                                <span class="product__btn">
-                                    <button>подробнее</button>
-                                </span>      
-                                <span class="product__btn"><a href="Product.html">Добавить в корзину</a></span>       
+                                </span>           
+                                <span class="product__btn"><a href="{% url 'about' prod.id %}">подробнее</a></span>       
                             </div>
                         </div>
                         <div class="product__name mx-auto text-center">
