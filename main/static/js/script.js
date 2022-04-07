@@ -9,3 +9,25 @@ function ibg() {
 		}
 	}
 }
+
+// отслеживаем клик на странице 
+window.addEventListener('click', function (event) {
+
+	// проверяем что клик был совершен по кнопке добавить в корзину
+	if (event.target.hasAttribute('data-cart')) {
+
+		// находим блок внутри которого нужные данные
+		const card = event.target.closest('.Product');
+
+		// собираем данные с этого блока в объект productInfo
+		const productInfo = {
+			id: card.dataset.id,
+			imgSrc: card.querySelector('.product-img').getAttribute('src'),
+			title: card.querySelector('.product-title').innerText,
+			itemsInBox: card.querySelector('.items-in-box').value,
+		}
+
+		console.log(productInfo);
+	}
+
+})
