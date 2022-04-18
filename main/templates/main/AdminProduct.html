@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,89 +8,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css\AdminStyle.css">
+    <link rel="stylesheet" href="{% static 'css\AdminStyle.css' %}">
     <title>AdminEdit</title>
 </head>
 
 <body>
 
     <!-- верхняя часть -->
-    <header class="header">
-        <div class="header__first">
-            <a href="MainPage.html" class="header__logo">
-            </a>
-        </div>
-        <div class="header__second">
-            <nav class="navbar navbar-expand-xl navbar-dark header__menu ">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#"></a>
-                    <button class="navbar-toggler menu__icon" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse menu__body" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto menu__list">
-                            <li class="nav-item">
-                                <a class=" menu__link" aria-current="page" href="T_shirt.html">футболки
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="menu__link" aria-current="page" href="#"> кофты
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" menu__link" aria-current="page" href="#"> комплекты
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" menu__link" aria-current="page" href="#"> прочее
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" menu__link" aria-current="page" href="Bag.html"> корзина
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class=" menu__link " data-bs-toggle="modal" data-bs-target="#exampleModalToggle"
-                                    aria-current="page" href="#"> Личный кабинет
-                                </a>
-                            </li>
-                        </ul>
+        <header class="header">
+            <div class="header__first">
+                <a href="{% url 'main' %}" class="header__logo">
+                </a>
+            </div>
+            <div class="header__second">
+                <nav class="navbar navbar-expand-xl navbar-dark header__menu ">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href=""></a>
+                        <button class="navbar-toggler menu__icon" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse menu__body" id="navbarSupportedContent">
+                            <ul class="navbar-nav mx-auto menu__list">
+                                <li class="nav-item">
+                                    <a class=" menu__link" aria-current="page" href="{% url 't_shirt' %}">футболки
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="menu__link" aria-current="page" href="{% url 'hoody' %}"> кофты
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class=" menu__link" aria-current="page" href="{% url 'other' %}"> комплекты
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class=" menu__link" aria-current="page" href="#"> прочее
+                                    </a>
+                                </li>
+                                {% if request.user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class=" menu__link" aria-current="page" href="{% url 'bag' %}"> корзина
+                                    </a>
+                                <li class="nav-item ">
+                                    <a class=" menu__link " aria-current="page" href="">
+                                        Личный кабинет
+                                    </a>
+                                </li>
+                                </li>
+                                <li class="nav-item">
+                                    <a class=" menu__link" aria-current="page" href="{% url 'logout' %}"> выход
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item ">
+                                    <a class=" menu__link " data-bs-toggle="modal" data-bs-target="#exampleModalToggle"
+                                        aria-current="page" href=""> вход/регистрация
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+                </nav>
+            </div>
+        </header>
+
 
     <!-- основная часть -->
     <div class="admin">
         <div class="container">
             <div class="row">
-                <div class="col-12 text-left mb-5">Добавить <span class="product-name">Футболку</span></div>
-                <form action="" class="product">
+                <div class="col-12 text-left mb-5">Добавить <span class="product-name">товар</span></div>
+                <form method="POST" enctype="multipart/form-data" class="product">
+                    {% csrf_token %}
                     <div class="product__name fild ">
-                        <span class="me-5">Имя</span><input type="text">
+                        <span class="me-5">Имя</span>{{ form.name }}
                     </div>
                     <div class="product__category fild ">
                         <span class="me-5">Категория</span> 
-                        <select name="category" id="id_category">
-                            <option value="футболки">футболки</option>
-                            <option value="кофты">кофты</option>
-                            <option value="другое" selected="">другое</option>
-                        </select> 
+                        {{ form.category }}
                     </div>
                     <div class="product__image fild ">
-                        <span class="me-5">Фото</span><input type="file">
+                        <span class="me-5">Фото</span>{{ form.image }}
                     </div>
                     <div class="product__description fild ">
-                        <span class="me-5">Описание</span><textarea name="" id="" cols="40" rows="5"></textarea>
+                        <span class="me-5">Описание</span>{{ form.description }}
                     </div>
                     <div class="product__price fild ">
-                        <span class="me-5">Цена</span><input type="number">
+                        <span class="me-5">Цена</span>{{ form.price }}
                     </div>
                     <div class="product__stock fild ">
-                        <span class="me-5">Количество</span><input type="number">
+                        <span class="me-5">Количество</span>{{ form.stock }}
                     </div>
                     <div class="product__btn fild ">
                         <button>Добавить</button>
@@ -172,7 +183,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>
