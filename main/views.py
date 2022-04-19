@@ -3,7 +3,7 @@ from .forms import SignUpForm, ProductForm
 from .models import Product
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.views.generic import DetailView
+from django.views.generic import DetailView, UpdateView
 from django.views.generic.edit import FormMixin
 
 
@@ -51,12 +51,27 @@ class About(DetailView):
 	template_name = 'main/Product.html' 
 	context_object_name = 'product'
 
+class Edit(UpdateView):
+	model = Product
+	form_class = ProductForm
+	template_name = 'main/AdminProduct.html'
+	context_object_name = 'product'
+
+
 def Admin(request):
+	t_shirt= Product.objects.filter(category="футболки")
+	hoody = Product.objects.filter(category="кофты")
+	other = Product.objects.filter(category="другое")
+	return render(request, 'main/AdminMain.html', {'T_shirt':t_shirt,
+												   'Hoody':hoody,
+												   'Other':other})
+
+def AddProduct(request):
 	if request.method == 'POST':
 		form = ProductForm(request.POST,request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('main')
+			return redirect('admin')
 	form = ProductForm()
 	return render(request, 'main/AdminProduct.html', {'form':form})
 
