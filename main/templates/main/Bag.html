@@ -97,8 +97,9 @@
                                                 <img src="img/Tshirt1.png" alt="" class="img-fluid">
                                             </div>
                                         </div>
+                                        {% for item in cart %}
                                         <div class="col-8">
-                                            <div class="product__title">Футболка "Староста"</div>
+                                            <div class="product__title">{{ item.product.name }}</div>
                                             <div class="product__size">
                                                 <div class="product__sizeText">размер</div>
                                                 <div class="product__sizeChoise">

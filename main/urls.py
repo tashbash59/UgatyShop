@@ -11,4 +11,5 @@ urlpatterns = [
 	path('hoody/', views.Hoody, name = 'hoody'),
 	path('other/', views.Other, name = 'other'),
 	path('about/<int:pk>', views.About.as_view(), name = 'about'),
+	path('admin1/', views.Admin, name='admin')
 ]

@@ -25,6 +25,8 @@ class Product(models.Model):
 	created = models.DateTimeField(auto_now_add=True) # дата создания
 	updated = models.DateTimeField(auto_now=True) # дата обновления
 
+	def get_cart_total(self):
+		return price*stock
 
 	def __str__(self):
 		return self.name

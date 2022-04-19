@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm
+from .forms import SignUpForm, ProductForm
 from .models import Product
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.generic import DetailView
+from django.views.generic.edit import FormMixin
 
 
 
@@ -33,25 +34,38 @@ def MainPage(request):
 	form = authentication(request)
 	return render(request, "main/MainPage.html", {"form":form})
 
-def Bag(request):
-	return render(request, "main/Bag.html", {})
-
 def T_shirt(request):
-	products = Product.objects.filter(available=True,category="футболки")
+	products = Product.objects.filter(category="футболки")
 	return render(request, "main/T_shirt.html", {'products':products})
 
 def Hoody(request):
-	products = Product.objects.filter(available=True,category="кофты")
+	products = Product.objects.filter(category="кофты")
 	return render(request, "main/hoody.html", {'products':products})
 
 def Other(request):
-	products = Product.objects.filter(available=True,category="другое")
+	products = Product.objects.filter(category="другое")
 	return render(request, "main/other.html", {'products':products})
 
 class About(DetailView):
 	model = Product
 	template_name = 'main/Product.html' 
 	context_object_name = 'product'
+
+def Admin(request):
+	if request.method == 'POST':
+		form = ProductForm(request.POST,request.FILES)
+		if form.is_valid():
+			form.save()
+			return redirect('main')
+	form = ProductForm()
+	return render(request, 'main/AdminProduct.html', {'form':form})
+
+
+def Bag(request):
+    return render(request, 'main/Bag.html', {'cart': Cart(request)})
+
+def cart(request):
+	pass
 
 def Logout(request):
 	logout(request)
