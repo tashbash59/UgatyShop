@@ -82,7 +82,8 @@
             <div class="Product__title container">
                 <h2 class="col-12 text-center">{{ product.name }}</h2>
             </div>
-            <form class="Product__body container">
+            <form method="POST" class="Product__body container">
+                {% csrf_token %}
                 <div class="row">
                     <div class="col-lg-6 col-md-12 Product__image">
                         <img src="{{ product.image.url }}" class="img-fluid product-img" alt="">
@@ -112,19 +113,19 @@
                             <div class="modal-body mx-auto">
                                 <div class="modal__count ">
                                     <div class="modal__title1 text-center mb-5 product-title" id="exampleModalLabel">{{ product.name }}</div>
+                                    {{ form.products}}
+                                    {{ form.created_by}}
                                     <div class="modal__title ">Количество товара</div>
-                                    <input type="number" min="1" value="1" class="items-in-box">
+                                    {{ form.count }}
                                 </div>
                                 <div class="dropdown">
-                                    <button class="btn choise dropdown-toggle" type="button"
-                                                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                            Выберите размер
-                                                                        </button>
+                                    {{ form.size }}
+                                    
                                 </div>
                             </div>
                             <div class="modal-footer mx-auto">
                                 <button type="button" class="btn knop1" data-bs-dismiss="modal">Закрыть</button>
-                                <button data-cart type="button" class="btn knop2">Добавить в корзину</button>
+                                <button type='submit' data-cart type="button" class="btn knop2">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>

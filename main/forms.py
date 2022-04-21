@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Product
+from .models import Product, CartProduct
 
 class SignUpForm(UserCreationForm):
 	def __init__(self, *args, **kwargs):
@@ -41,4 +41,17 @@ class ProductForm(forms.ModelForm):
 			"price": forms.NumberInput(),
 			"description": forms.Textarea(),
 			"image": forms.ClearableFileInput()
+		}
+
+class AddCartForm(forms.ModelForm):
+
+	class Meta:
+		model = CartProduct
+		fields = ['size','count','products','created_by']
+
+		widgets = {
+			"size": forms.Select(),
+			"count": forms.NumberInput(),
+			"products": forms.HiddenInput(),
+			"created_by": forms.Select()
 		}

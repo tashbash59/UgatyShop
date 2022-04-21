@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # ------Создание модели товаров------
@@ -25,8 +26,24 @@ class Product(models.Model):
 	created = models.DateTimeField(auto_now_add=True) # дата создания
 	updated = models.DateTimeField(auto_now=True) # дата обновления
 
-	def get_cart_total(self):
-		return price*stock
-
 	def __str__(self):
 		return self.name
+
+class CartProduct(models.Model):
+
+	s = 'S'
+	m = 'M'
+	l = 'L'
+	SIZE = (
+		(s,"S"),
+		(m,"M"),
+		(l,"L")
+		)
+
+
+	products = models.ForeignKey(Product, on_delete=models.CASCADE)
+	count = models.PositiveIntegerField(default=1)
+	size = models.CharField(max_length=10, choices=SIZE,default=m)
+	created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
