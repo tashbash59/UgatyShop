@@ -53,5 +53,5 @@ class AddCartForm(forms.ModelForm):
 			"size": forms.Select(),
 			"count": forms.NumberInput(),
 			"products": forms.HiddenInput(),
-			"created_by": forms.Select()
+			"created_by": forms.HiddenInput()
 		}

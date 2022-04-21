@@ -102,7 +102,7 @@ def AddProduct(request):
 def Bag(request):
     tovar = CartProduct.objects.filter(created_by=request.user)
     #total_price = tovar.aggregate(Sum('productprice'))
-    return render(request, 'main/Bag.html', {"tovar":tovar, "total_price": total_price})
+    return render(request, 'main/Bag.html', {"tovar":tovar})
 
 def cart(request):
     pass

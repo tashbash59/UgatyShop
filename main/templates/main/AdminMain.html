@@ -15,53 +15,71 @@
 <body>
 
     <!-- верхняя часть -->
-    <header class="header">
-        <div class="header__first">
-            <a href="MainPage.html" class="header__logo">
-            </a>
-        </div>
-        <div class="header__second">
-            <nav class="navbar navbar-expand-xl navbar-dark header__menu ">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#"></a>
-                    <button class="navbar-toggler menu__icon" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse menu__body" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto menu__list">
-                            <li class="nav-item">
-                                <a class=" menu__link" aria-current="page" href="T_shirt.html">футболки
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="menu__link" aria-current="page" href="#"> кофты
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" menu__link" aria-current="page" href="#"> комплекты
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" menu__link" aria-current="page" href="#"> прочее
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" menu__link" aria-current="page" href="Bag.html"> корзина
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class=" menu__link " data-bs-toggle="modal" data-bs-target="#exampleModalToggle"
-                                    aria-current="page" href="#"> Личный кабинет
-                                </a>
-                            </li>
-                        </ul>
+        <header class="header">
+            <div class="header__first">
+                <a href="{% url 'main' %}" class="header__logo">
+                </a>
+            </div>
+            <div class="header__second">
+                <nav class="navbar navbar-expand-xl navbar-dark header__menu ">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href=""></a>
+                        <button class="navbar-toggler menu__icon" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse menu__body" id="navbarSupportedContent">
+                            <ul class="navbar-nav mx-auto menu__list">
+                                <li class="nav-item">
+                                    <a class=" menu__link" aria-current="page" href="{% url 't_shirt' %}">футболки
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="menu__link" aria-current="page" href="{% url 'hoody' %}"> кофты
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class=" menu__link" aria-current="page" href="{% url 'other' %}"> комплекты
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class=" menu__link" aria-current="page" href="#"> прочее
+                                    </a>
+                                </li>
+                                {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                <li class="nav-item ">
+                                    <a class=" menu__link" aria-current="page" href="{% url 'admin' %}"> администрация
+                                    </a>
+                                </li>
+                                {% endif %}
+                                <li class="nav-item">
+                                    <a class=" menu__link" aria-current="page" href="{% url 'bag' %}"> корзина
+                                    </a>
+                                <li class="nav-item ">
+                                    <a class=" menu__link " aria-current="page" href="">
+                                        Личный кабинет
+                                    </a>
+                                </li>
+                                </li>
+                                <li class="nav-item">
+                                    <a class=" menu__link" aria-current="page" href="{% url 'logout' %}"> выход
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item ">
+                                    <a class=" menu__link " data-bs-toggle="modal" data-bs-target="#exampleModalToggle"
+                                        aria-current="page" href=""> вход/регистрация
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+                </nav>
+            </div>
+        </header>
 
     <!-- основная часть -->
     <div class="admin">

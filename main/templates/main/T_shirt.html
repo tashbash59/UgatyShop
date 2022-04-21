@@ -51,6 +51,12 @@
                                     </a>
                                 </li>
                                 {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                <li class="nav-item ">
+                                    <a class=" menu__link" aria-current="page" href="{% url 'admin' %}"> администрация
+                                    </a>
+                                </li>
+                                {% endif %}
                                 <li class="nav-item">
                                     <a class=" menu__link" aria-current="page" href="{% url 'bag' %}"> корзина
                                     </a>
