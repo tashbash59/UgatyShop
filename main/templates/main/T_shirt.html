@@ -105,7 +105,7 @@
                             </div>
                         </div>
                         <div class="product__name mx-auto text-center">
-                            <span>{{ prod.name }}</span>
+                            <span><a href="{% url 'about' prod.id %}">{{ prod.name }}</a></span>
                         </div>
                     </div>
                     {% endfor %}

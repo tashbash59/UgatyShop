@@ -90,38 +90,41 @@
                     <h1 class="col-12 text-center text-dark">Мои покупки</h1>
                 </div>
             </div>
-            <form class="bag__body">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 col-sm-12 bag__goods">
                             {% for item in tovar %}
-                            <div class="bag__FirstProduct product">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <div class="product__image">
-                                                <img src="{{ item.products.image.url }}" alt="" class="img-fluid">
-                                            </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="product__title">{{ item.products.name }}</div>
-                                            <div class="product__size">
-                                                <div class="product__sizeText">размер</div>
-                                                {{ item.size }}
-                                            </div>
-                                            <div class="product__quantity">
-                                                <div class="product__quantity-text">количество</div>
-                                                <div class="product__quantity-number">
-                                                    {{ item.count }}
+                                <form method="post" action="{% url 'delete' item.id%}">
+                                    {% csrf_token %}
+                                    <div class="bag__FirstProduct product">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="product__image">
+                                                        <img src="{{ item.products.image.url }}" alt="" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="product__title"><a href="{% url 'about' item.products.id %}">{{ item.products.name }}</a></div>
+                                                    <div class="product__size">
+                                                        <div class="product__sizeText">размер</div>
+                                                        {{ item.size }}
+                                                    </div>
+                                                    <div class="product__quantity">
+                                                        <div class="product__quantity-text">количество</div>
+                                                        <div class="product__quantity-number">
+                                                            {{ item.count }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="product__cost">
+                                                        <span>{{ item.products.price }}</span> рублей
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="product__cost">
-                                                <span>{{ item.products.price }}</span> рублей
-                                            </div>
                                         </div>
+                                        <button type="submit">удалить</button>
                                     </div>
-                                </div>
-                            </div>
+                                </form>
                             {% endfor %}
                             <div class="bag__SecondProduct product">
                                 <div class="container">
@@ -174,7 +177,6 @@
                         </div>
                     </div>
                 </div>
-            </form>
         </section>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

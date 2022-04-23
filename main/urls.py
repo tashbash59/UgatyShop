@@ -13,5 +13,6 @@ urlpatterns = [
 	path('about/<int:pk>', views.About.as_view(), name = 'about'),
 	path('admin1/addproduct/', views.AddProduct, name='add'),
 	path('admin1/edit/<int:pk>', views.Edit.as_view(), name='edit'),
-	path('admin1/', views.Admin, name='admin')
+	path('admin1/', views.Admin, name='admin'),
+	path('delete/<int:id>', views.Delete, name='delete'),
 ]

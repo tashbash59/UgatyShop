@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
 
 
 # ------Создание модели товаров------
@@ -42,7 +43,7 @@ class CartProduct(models.Model):
 
 
 	products = models.ForeignKey(Product, on_delete=models.CASCADE)
-	count = models.PositiveIntegerField(default=1)
+	count = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)])
 	size = models.CharField(max_length=10, choices=SIZE,default=m)
 	created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 

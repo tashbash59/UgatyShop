@@ -89,6 +89,11 @@ def Admin(request):
                                                    'Hoody':hoody,
                                                    'Other':other})
 
+def Delete(request,id):
+    dlt= CartProduct.objects.get(id=id)
+    dlt.delete()
+    return redirect('bag')
+
 def AddProduct(request):
     if request.method == 'POST':
         form = ProductForm(request.POST,request.FILES)
@@ -101,6 +106,10 @@ def AddProduct(request):
 
 def Bag(request):
     tovar = CartProduct.objects.filter(created_by=request.user)
+    if request.method == 'POST':
+        delete = CartProduct.objects.get(id=tovar.id)
+        delete.delete()
+
     #total_price = tovar.aggregate(Sum('productprice'))
     return render(request, 'main/Bag.html', {"tovar":tovar})
 
