@@ -69,9 +69,9 @@
             <div class="row">
                 <div class="col-12 mb-5 category">
                     <h3>Футболки</h3>
-                    <ul class="list">
+                    <ul class="list ">
                         {% for t in T_shirt %}
-                        <li><a href="{% url 'edit' t.id %}"> {{ t.name }} </a></li>
+                        <li class="d-flex justify-content-between ps-3 pe-3"><a href="{% url 'edit' t.id %}"> {{ t.name }} </a><button class="DeleteBtn">удалить</button></li>
                         {% endfor%}
                     </ul>
                 </div>
