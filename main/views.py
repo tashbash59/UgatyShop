@@ -79,7 +79,8 @@ class Edit(UpdateView):
     form_class = ProductForm
     template_name = 'main/AdminProduct.html'
     context_object_name = 'product'
-
+    def get_success_url(self):
+        return reverse('admin')
 
 def Admin(request):
     t_shirt= Product.objects.filter(category="футболки")
@@ -99,6 +100,10 @@ def AddProduct(request):
         form = ProductForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
+            print(form.cleaned_data['name'])
+            print(form.cleaned_data['price'])
+            print(form.cleaned_data['description'])
+            print(form.cleaned_data['image'])
             return redirect('admin')
     form = ProductForm()
     return render(request, 'main/AdminProduct.html', {'form':form})
