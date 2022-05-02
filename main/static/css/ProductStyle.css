@@ -112,6 +112,122 @@
   margin-bottom: 15px;
 }
 
+.modal-header {
+  border-bottom: 0px solid #000;
+}
+
+.modal-footer {
+  border-top: 0px solid #000;
+}
+
+.modal-content {
+  padding: 15px;
+}
+
+.modal-body {
+  font-family: SF UI Text;
+}
+
+.modal-body__MailTitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #818d92;
+  margin-bottom: 10px;
+}
+
+.modal-body__MailInput {
+  background: #ebedef;
+  border-radius: 1000px;
+  border-color: #ebedef;
+  height: 39px;
+}
+
+.modal-body__PasswordTitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #818d92;
+  margin-bottom: 10px;
+}
+
+.modal-body__PasswordInput {
+  background: #ebedef;
+  border-radius: 1000px;
+  border-color: #ebedef;
+  height: 39px;
+}
+
+.modal-body__SignInBtn {
+  width: 165px;
+  height: 40px;
+  background: #c4c4c4;
+  border-radius: 1000px;
+  border-color: #c4c4c4;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 31px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.modal-body__SignInSubTitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #818d92;
+}
+
+.modal-body__Registr {
+  font-style: normal;
+  font-size: 24px;
+  line-height: 31px;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.btn-primary {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 31px;
+  text-transform: uppercase;
+  color: #000000;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #c4c4c4;
+}
+
+.fz20 {
+  font-size: 20px;
+  width: 270px;
+}
+
+.modal-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 42px;
+  color: #000000;
+}
+
+input,
+button {
+  border-width: 0px;
+}
+
 @font-face {
   font-family: 'SF UI Display Black';
   src: url("../fonts/sf_ui_display_black.eot");
@@ -280,13 +396,13 @@
   /* Chrome < 4, Legacy iOS */
 }
 
-body {
-  overflow: hidden;
-}
-
 .Product__title {
   font-family: "SF UI Text Bold";
   padding: 280px 0 50px 0;
+}
+
+.info {
+  padding: 20px 0;
 }
 
 .info__price {
@@ -341,26 +457,72 @@ body {
   cursor: pointer;
 }
 
-.modal__count {
-  position: relative;
-  margin-bottom: 50px;
+.modal-content {
+  padding: 0;
 }
 
-.modal__count input {
-  width: 20%;
-}
-
-.modal__title1 {
-  font-family: "SF UI Text SemiBold";
-  color: #000;
-  font-size: 24px;
+.modal__productName {
+  margin: 20px 0px;
+  font-family: 'SF UI Text';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  color: #000000;
 }
 
 .modal__title {
-  font-family: "SF UI Text Medium";
-  color: #000;
+  font-family: 'SF UI Text';
+  font-style: normal;
+  font-weight: 500;
   font-size: 20px;
-  margin-bottom: 5px;
+  line-height: 24px;
+  color: #000000;
+  margin-bottom: 13px;
+}
+
+.modal__numinput {
+  border: 1px solid #000;
+  width: 104px;
+  height: 34px;
+  background: #DEE2E6;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'SF UI Text';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.modal__numinput:hover {
+  background-color: #B5C4D2;
+}
+
+.modal__choise {
+  border: 1px solid #000;
+  width: 104px;
+  height: 34px;
+  background: #DEE2E6;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'SF UI Text';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.modal__choise:hover {
+  background-color: #B5C4D2;
+}
+
+.modal-footer,
+.modal-header {
+  border: 1px solid #DEE2E6;
 }
 
 .knop1 {
@@ -387,12 +549,4 @@ body {
 .knop2:hover {
   color: #000;
   background-color: #EBEDEF;
-}
-
-.choise {
-  font-family: "SF UI Text Medium";
-  color: #000;
-  border: 1px solid #000;
-  font-size: 18px;
-  border-radius: 1000px;
 }
