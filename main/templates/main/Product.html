@@ -112,23 +112,30 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body mx-auto">
                                 <div class="modal__count ">
-                                    <div class="modal__title1 text-center mb-5 product-title" id="exampleModalLabel">{{ product.name }}</div>
+                                    <div class="modal__productName text-center product-title">
+                                    {{ product.name }}
+                                    </div>
                                     {{ form.products}}
-                                    {{ form.created_by}}
-                                    <div class="modal__title ">Количество товара</div>
-                                    {{ form.count }}
+                                    {{ form.created_by}}                                    
+                                    <div class="modal__count text-center">
+                                        <div class="modal__title ">Количество товара</div>
+                                        {{ form.count }}
+                                        </div>
+                                    </div>
+                                    <div class="modal__size text-center">
+                                        <div class="modal__title ">Размер</div>
+                                        <select class="modal__choise" name="" id="">
+                                            <option value="">S</option>
+                                            <option value="">M</option>
+                                            <option value="">L</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="dropdown">
-                                    {{ form.size }}
-                                    
-                                </div>
-                            </div>
                             <div class="modal-footer mx-auto">
                                 <button type="button" class="btn knop1" data-bs-dismiss="modal">Закрыть</button>
                                 <button type='submit' data-cart type="button" class="btn knop2">Добавить в корзину</button>
