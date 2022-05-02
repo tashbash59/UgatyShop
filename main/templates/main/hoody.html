@@ -18,6 +18,7 @@
 
     <main class="page">
 
+        <!-- Верхняя часть -->
         <header class="header">
             <div class="header__first">
                 <a href="{% url 'main' %}" class="header__logo">
@@ -44,10 +45,6 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class=" menu__link" aria-current="page" href="{% url 'other' %}"> комплекты
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class=" menu__link" aria-current="page" href="#"> прочее
                                     </a>
                                 </li>
                                 {% if request.user.is_authenticated %}
@@ -84,6 +81,7 @@
             </div>
         </header>
 
+        <!-- Основная часть -->
         <section class="Tshirts">
             <div class="row">
                 <div class="Tshirts__title  container">
@@ -99,8 +97,8 @@
                                 <img src="{{ prod.image.url }}" alt="">
                                 <span class="product__price text-center">
                                     {{ prod.price }}
-                                </span>                 
-                                <span class="product__btn"><a href="{% url 'about' prod.id %}">подробнее</a></span>          
+                                </span>
+                                <span class="product__btn"><a href="{% url 'about' prod.id %}">подробнее</a></span>
                             </div>
                         </div>
                         <div class="product__name mx-auto text-center">

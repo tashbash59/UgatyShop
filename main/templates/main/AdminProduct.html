@@ -43,10 +43,6 @@
                                     <a class=" menu__link" aria-current="page" href="{% url 'other' %}"> комплекты
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class=" menu__link" aria-current="page" href="#"> прочее
-                                    </a>
-                                </li>
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                 <li class="nav-item ">
@@ -78,6 +74,73 @@
                         </div>
                     </div>
                 </nav>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+                tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form class="modal-body">
+                            <div class="modal-body__Mail mb-3">
+                                <div class="modal-body__MailTitle">ЭЛ. ПОЧТА</div>
+                                <input type="text" class="modal-body__MailInput w-100">
+                            </div>
+                            <div class="modal-body__Password mb-5">
+                                <div class="modal-body__PasswordTitle">ПАРОЛЬ</div>
+                                <input type="password" class="modal-body__PasswordInput w-100">
+                            </div>
+                            <div class="modal-body__SignIn text-center">
+                                <button class="modal-body__SignInBtn">ВОЙТИ</button>
+                            </div>
+                            <div class="modal-body__SignInSubTitle text-center mb-3 mt-5">ИЛИ</div>
+
+                        </form>
+                        <div class="modal-body__Registr text-center">
+                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                                data-bs-dismiss="modal">Регистрация</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form class="modal-body">
+                            <div class="modal-body__title text-center mb-3">
+                                <h5 class="modal-title" id="exampleModalToggleLabel2">Регистрация</h5>
+                            </div>
+                            <div class="modal-body__Mail mb-3">
+                                <div class="modal-body__MailTitle">ЭЛ. ПОЧТА</div>
+                                <input type="text" class="modal-body__MailInput w-100">
+                            </div>
+                            <div class="modal-body__Password mb-3">
+                                <div class="modal-body__PasswordTitle">ПАРОЛЬ</div>
+                                <input type="password" class="modal-body__PasswordInput w-100">
+                            </div>
+                            <div class="modal-body__Password mb-5">
+                                <div class="modal-body__PasswordTitle">подтвердите пароль</div>
+                                <input type="password" class="modal-body__PasswordInput w-100">
+                            </div>
+                            <div class="modal-body__SignIn  text-center">
+                                <button class="modal-body__SignInBtn fz20">зарегистрироваться</button>
+                            </div>
+                            <div class="modal-body__SignInSubTitle text-center mb-3 mt-5">ИЛИ</div>
+
+                        </form>
+                        <div class="modal-body__SignIn text-center">
+                            <button class="btn btn-primary modal-body__SignInBtn" data-bs-target="#exampleModalToggle"
+                                data-bs-toggle="modal" data-bs-dismiss="modal">Войти</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
 

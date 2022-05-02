@@ -50,8 +50,8 @@ class AddCartForm(forms.ModelForm):
 		fields = ['size','count','products','created_by']
 
 		widgets = {
-			"size": forms.Select(attrs={'class':''}),
-			"count": forms.NumberInput(attrs={'class':''}),
+			"size": forms.Select(attrs={'class':'modal__choise'}),
+			"count": forms.NumberInput(attrs={'class':'modal__numinput'}),
 			"products": forms.HiddenInput(attrs={'class':''}),
 			"created_by": forms.HiddenInput(attrs={'class':''})
 		}

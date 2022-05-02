@@ -533,10 +533,3 @@ body {
   color: #000000;
 }
 
-@media (min-width: 1300px) {
-  .right {
-    position: absolute;
-    right: 20%;
-    top: 20%;
-  }
-}

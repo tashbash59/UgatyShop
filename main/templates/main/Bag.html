@@ -18,6 +18,7 @@
 
     <main class="page">
 
+        <!-- Верхняя часть -->
         <header class="header">
             <div class="header__first">
                 <a href="{% url 'main' %}" class="header__logo">
@@ -44,10 +45,6 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class=" menu__link" aria-current="page" href="{% url 'other' %}"> комплекты
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class=" menu__link" aria-current="page" href="#"> прочее
                                     </a>
                                 </li>
                                 {% if request.user.is_authenticated %}
@@ -84,69 +81,71 @@
             </div>
         </header>
 
+        <!-- Основная часть -->
         <section class="bag">
             <div class="row">
                 <div class="bag__title title container">
                     <h1 class="col-12 text-center text-dark">Мои покупки</h1>
                 </div>
             </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12 bag__goods">
-                            {% for item in tovar %}
-                                <form method="post" action="{% url 'delete' item.id%}">
-                                    {% csrf_token %}
-                                    <div class="bag__FirstProduct product">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="product__image">
-                                                        <img src="{{ item.products.image.url }}" alt="" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="product__title"><a href="{% url 'about' item.products.id %}">{{ item.products.name }}</a></div>
-                                                    <div class="product__size">
-                                                        <div class="product__sizeText">размер</div>
-                                                        {{ item.size }}
-                                                    </div>
-                                                    <div class="product__quantity">
-                                                        <div class="product__quantity-text">количество</div>
-                                                        <div class="product__quantity-number">
-                                                            {{ item.count }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="product__cost">
-                                                        <span>{{ item.products.price }}</span> рублей
-                                                    </div>
-                                                </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 bag__goods">
+                        {% for item in tovar %}
+                        <form method="post" action="{% url 'delete' item.id%}">
+                            {% csrf_token %}
+                            <div class="bag__FirstProduct product">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="product__image">
+                                                <img src="{{ item.products.image.url }}" alt="" class="img-fluid">
                                             </div>
                                         </div>
-                                        <button type="submit">удалить</button>
+                                        <div class="col-8">
+                                            <div class="product__title"><a href="{% url 'about' item.products.id %}">{{
+                                                    item.products.name }}</a></div>
+                                            <div class="product__size">
+                                                <div class="product__sizeText">размер</div>
+                                                {{ item.size }}
+                                            </div>
+                                            <div class="product__quantity">
+                                                <div class="product__quantity-text">количество</div>
+                                                <div class="product__quantity-number">
+                                                    {{ item.count }}
+                                                </div>
+                                            </div>
+                                            <div class="product__cost">
+                                                <span>{{ item.products.price }}</span> рублей
+                                            </div>
+                                        </div>
                                     </div>
-                                </form>
-                            {% endfor %}
+                                </div>
+                                <button type="submit">удалить</button>
+                            </div>
+                        </form>
+                        {% endfor %}
 
+                    </div>
+                    <div class="col-md-6 col-sm-12 bag__order details">
+                        <div class="details__price d-flex justify-content-between">
+                            <span class="details__priceTitle">Стоимость товаров</span> <span
+                                class="details__priceNumber">{{ total_price}} рублей</span>
                         </div>
-                        <div class="col-md-6 col-sm-12 bag__order details">
-                            <div class="details__price d-flex justify-content-between">
-                                <span class="details__priceTitle">Стоимость товаров</span> <span
-                                    class="details__priceNumber">{{ total_price}} рублей</span>
-                            </div>
-                            <div class="details__price d-flex justify-content-between">
-                                <span class="details__priceTitle">Стоимость доставки</span> <span
-                                    class="details__priceNumber"> 500 рублей</span>
-                            </div>
-                            <div class="details__price-b d-flex justify-content-between">
-                                <span class="details__priceTitle-b">Итого</span> <span
-                                    class="details__priceNumber-b">1 500 рублей</span>
-                            </div>
-                            <div class="details__btn text-center">
-                                <button>Оформить заказ</button>
-                            </div>
+                        <div class="details__price d-flex justify-content-between">
+                            <span class="details__priceTitle">Стоимость доставки</span> <span
+                                class="details__priceNumber"> 500 рублей</span>
+                        </div>
+                        <div class="details__price-b d-flex justify-content-between">
+                            <span class="details__priceTitle-b">Итого</span> <span class="details__priceNumber-b">1 500
+                                рублей</span>
+                        </div>
+                        <div class="details__btn text-center">
+                            <button>Оформить заказ</button>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

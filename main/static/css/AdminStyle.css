@@ -472,3 +472,111 @@ h3 {
 input {
   border: 1px solid #000;
 }
+
+.modal-header {
+  border-bottom: 0px solid #000;
+}
+
+.modal-footer {
+  border-top: 0px solid #000;
+}
+
+.modal-content {
+  padding: 15px;
+}
+
+.modal-body__MailTitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #818d92;
+  margin-bottom: 10px;
+}
+
+.modal-body__MailInput {
+  background: #ebedef;
+  border-radius: 1000px;
+  border-color: #ebedef;
+  height: 39px;
+}
+
+.modal-body__PasswordTitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #818d92;
+  margin-bottom: 10px;
+}
+
+.modal-body__PasswordInput {
+  background: #ebedef;
+  border-radius: 1000px;
+  border-color: #ebedef;
+  height: 39px;
+}
+
+.modal-body__SignInBtn {
+  width: 165px;
+  height: 40px;
+  background: #c4c4c4;
+  border-radius: 1000px;
+  border-color: #c4c4c4;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.modal-body__SignInSubTitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #818d92;
+}
+
+.modal-body__Registr {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.btn-primary {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  text-transform: uppercase;
+  color: #000000;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #c4c4c4;
+}
+
+.fz20 {
+  font-size: 20px;
+  width: 270px;
+}
+
+.modal-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 42px;
+  color: #000000;
+}
