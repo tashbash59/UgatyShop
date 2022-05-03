@@ -186,27 +186,18 @@
                             </ul>
                         </div>
                         <div class="footer__links row">
-                            <div class="col-lg-4 col-sm-12">
+                            <div class="col-lg-5 col-sm-12">
                                 <a href="{% url 'main' %}" class="footer__LogoLink"><img
                                         src="{% static 'img/WhiteLogo.png' %}" alt="" class="footer__logo"></a>
                             </div>
-                            <div
-                                class=" col-lg-8 col-sm-12">
-                                <div class="footer_VkCircle">
-                                    <a href="" class="footer__VkLink">
-                                        <img src="{% static 'img/VK.png' %}" alt="" class="footer__vk">
-                                    </a>
-                                </div>
-                                <div class="footer_InstaCircle">
-                                    <a href="" class="footer__InstaLink">
-                                        <img src="{% static 'img/Insta.png' %}" alt="" class="footer__insta">
-                                    </a>
-                                </div>
+                            <div class=" col-lg-7 col-sm-12 d-flex justify-content-center footer__social">
+                                <div class="footer__VkCircle d-flex align-items-center justify-content-center"><a href="" class="footer__VkLink"><img src="{% static 'img/VK.png' %}" alt="" class="footer__VkLogo"></a></div>
+                                <div class="footer__InstaCircle d-flex align-items-center justify-content-center"><a href="" class="footer__InstaLink"><img src="{% static 'img/Insta.png' %}" alt="" class="footer__InstaLogo"></a></div>
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-12">
+                    <div class="col-lg-6 col-sm-12 footer__info">
                         <div class="footer_mail footerinfo text-end">
                             <div class="footerinfo__title">EMAIL:</div>
                             <div class="footerinfo__subtitle">info@ugatu.su</div>

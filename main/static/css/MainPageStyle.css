@@ -604,26 +604,27 @@ body {
 .footer__logo {}
 
 @media (min-width: 1000px) {
-  .footer__VkCircle {
-    margin-left: 100px;
+  .footer__social {
+    text-align: center;
   }
 }
 
 .footer__VkCircle {
   margin-top: -40px;
+  margin-right: 30px;
   background: #C4C4C4;
   width: 81px;
   height: 81px;
   border-radius: 50%;
-  margin-right: 30px;
 }
 
-.footer__vk {
+.footer__VkLogo {
   width: 60px;
   height: 60px;
 }
 
 .footer__InstaCircle {
+  display: block;
   margin-top: -40px;
   background: #C4C4C4;
   width: 81px;
@@ -631,7 +632,7 @@ body {
   border-radius: 50%;
 }
 
-.footer__insta {
+.footer__InstaLogo {
   width: 60px;
   height: 60px;
 }
@@ -667,3 +668,9 @@ body {
 }
 
 .footer_sup {}
+
+.test{
+  background-color: white;
+  height: 300px;
+  width: 100%;
+}
