@@ -103,8 +103,7 @@
                                             </div>
                                         </div>
                                         <div class="col-8">
-                                            <div class="product__title"><a href="{% url 'about' item.products.id %}">{{
-                                                    item.products.name }}</a></div>
+                                            <div class="product__title"><a href="{% url 'about' item.products.id %}">{{item.products.name }}</a></div>
                                             <div class="product__size">
                                                 <div class="product__sizeText">размер</div>
                                                 {{ item.size }}
@@ -119,9 +118,9 @@
                                                 <span>{{ item.products.price }}</span> рублей
                                             </div>
                                         </div>
+                                        <button class="Delete_btn" type="submit">удалить</button>
                                     </div>
                                 </div>
-                                <button type="submit">удалить</button>
                             </div>
                         </form>
                         {% endfor %}

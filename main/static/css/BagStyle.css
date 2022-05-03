@@ -528,3 +528,25 @@ button:focus {
   line-height: 42px;
   color: #000000;
 }
+
+.Delete_btn{
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  color: dark;
+  font-size: 14px;
+  font-weight: 400;
+  text-align-last: left;
+  margin-top: 10px;
+  border: 1px solid #c4c4c4;
+  border-radius: 20px;
+  padding: 0 0 3px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  margin-left: 12px;
+}
+.Delete_btn:hover{
+  background-color: #585555;
+  color: white;
+}
